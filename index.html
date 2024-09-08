@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpiroNova</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+     <!-- Header section -->
+     <header class="header">
+        <div class="container">
+            <h1 class="logo">SpiroNova</h1>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#air-quality">Air Quality</a></li>
+                    <li><a href="#water-quality">Water Quality</a></li>
+                    <li><a href="#analysis">Analysis</a></li>
+                    <li><a href="#about-us">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="main-section">
+        <!-- Static Quotes Section -->
+        <div class="static-quotes">
+            <h2>Environmental Insights</h2>
+            <p>"The environment is where we all meet; where we all have a mutual interest; it is the one thing all of us share." – Lady Bird Johnson</p>
+            <p>"We won’t have a society if we destroy the environment." – Margaret Mead</p>
+        </div>
+    
+        <!-- Sliding Quotes Section -->
+        <div class="sliding-quotes">
+            <h2>Inspiring Quotes</h2>
+            <div class="quote-carousel">
+                <div class="quote" id="quote1">"Earth provides enough to satisfy every man's needs, but not every man's greed." – Mahatma Gandhi</div>
+                <div class="quote" id="quote2">"The greatest threat to our planet is the belief that someone else will save it." – Robert Swan</div>
+                <div class="quote" id="quote3">"Nature is painting for us, day after day, pictures of infinite beauty." – John Ruskin</div>
+                <div class="quote" id="quote4">"Look deep into nature, and then you will understand everything better." – Albert Einstein</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="sub-hero">
+        <div class="stats-container">
+            <div class="stat">
+                <h3>993</h3>
+                <p>Total Stations</p>
+            </div>
+            <div class="stat">
+                <h3>260</h3>
+                <p>Total Cities</p>
+            </div>
+            <div class="stat">
+                <h3>22</h3>
+                <p>Total States</p>
+            </div>
+            <div class="stat">
+                <h3>154</h3>
+                <p>AQI Greater Noida</p>
+            </div>
+        </div>
+    
+        <div class="sub-hero-buttons">
+            <a href="#stations" class="btn">View Stations</a>
+            <a href="#cities" class="btn">View Cities</a>
+            <a href="#states" class="btn">View States</a>
+            <a href="#aqi-data" class="btn">View AQI Data</a>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="dashboard-header">
+            <h1>Pollution Data Dashboard</h1>
+        </div>
+
+        <div class="dashboard-content">
+            <div class="chart-container">
+                <h2>Top 6 Polluted Cities Ozone Level</h2>
+                <canvas id="ozoneLevelChart"></canvas>
+            </div>
+
+            <div class="chart-container">
+                <h2>Top 5 Polluted Cities</h2>
+                <canvas id="pollutedCitiesChart"></canvas>
+            </div>
+
+            <div class="table-container">
+                <h2>Median AQI and PM10 by City</h2>
+                <table id="medianTable">
+                    <tr>
+                        <th>Median AQI</th>
+                        <th>Median PM10</th>
+                        <th>City</th>
+                    </tr>
+                    <tr>
+                        <td>483</td>
+                        <td>62.9</td>
+                        <td>Ahmedabad</td>
+                    </tr>
+                    <tr>
+                        <td>435</td>
+                        <td>46.5</td>
+                        <td>Bengaluru</td>
+                    </tr>
+                    <tr>
+                        <td>483</td>
+                        <td>62.9</td>
+                        <td>Ahmedabad</td>
+                    </tr>
+                    <tr>
+                        <td>435</td>
+                        <td>46.5</td>
+                        <td>Bengaluru</td>
+                    </tr>
+                    <tr>
+                        <td>492</td>
+                        <td>55.3</td>
+                        <td>Delhi</td>
+                    </tr>
+                    <tr>
+                        <td>410</td>
+                        <td>50.7</td>
+                        <td>Hyderabad</td>
+                    </tr>
+                    <tr>
+                        <td>470</td>
+                        <td>58.2</td>
+                        <td>Chennai</td>
+                    </tr>
+                    <tr>
+                        <td>455</td>
+                        <td>61.1</td>
+                        <td>Kolkata</td>
+                    </tr>
+                    <tr>
+                        <td>425</td>
+                        <td>53.8</td>
+                        <td>Jaipur</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="chart-container">
+                <h2>Top 6 Polluted Cities AQI Level</h2>
+                <canvas id="aqiLevelChart" width="300" height="300"></canvas> <!-- Set the width and height here -->
+            </div>
+            
+
+            <div class="chart-container">
+                <h2>PH Levels by Air</h2>
+                <canvas id="phLevelsChart"></canvas>
+            </div>
+
+            <div class="table-container">
+                <h2>State Pollution Data</h2>
+                <table id="statePollutionTable">
+                    <tr>
+                        <th>State</th>
+                        <th>AVG AQI</th>
+                        <th>AVG PM2.5</th>
+                        <th>AVG PM10</th>
+                        <th>AVG WQI</th>
+                        <th>AVG PH</th>
+                        <th>AVG Temp</th>
+                    </tr>
+                    <tr>
+                        <td>Gujarat</td>
+                        <td>69.75</td>
+                        <td>49</td>
+                        <td>62</td>
+                        <td>242.65</td>
+                        <td>7.8</td>
+                        <td>27.5</td>
+                    </tr>
+                    <tr>
+                        <td>Maharashtra</td>
+                        <td>75.60</td>
+                        <td>55</td>
+                        <td>70</td>
+                        <td>250.30</td>
+                        <td>7.6</td>
+                        <td>28.0</td>
+                    </tr>
+                    <tr>
+                        <td>Karnataka</td>
+                        <td>72.45</td>
+                        <td>52</td>
+                        <td>68</td>
+                        <td>245.20</td>
+                        <td>7.7</td>
+                        <td>27.8</td>
+                    </tr>
+                    <tr>
+                        <td>Tamil Nadu</td>
+                        <td>78.30</td>
+                        <td>60</td>
+                        <td>75</td>
+                        <td>260.00</td>
+                        <td>7.9</td>
+                        <td>28.5</td>
+                    </tr>
+                    <tr>
+                        <td>Rajasthan</td>
+                        <td>65.50</td>
+                        <td>45</td>
+                        <td>60</td>
+                        <td>230.10</td>
+                        <td>7.5</td>
+                        <td>26.9</td>
+                    </tr>
+                    <tr>
+                        <td>Punjab</td>
+                        <td>68.20</td>
+                        <td>50</td>
+                        <td>65</td>
+                        <td>240.40</td>
+                        <td>7.7</td>
+                        <td>27.2</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="chart-container">
+                <h2>Heatmap (Placeholder)</h2>
+                <div id="heatmap"></div>
+            </div>
+           
+        </div>
+         <div class="water-container">
+                <div class="buttons">
+                    <button id="water-air">AIR</button>
+                    <button id="water-water" class="active">WATER</button>
+                    <button id="water-temperature">Temperature</button>
+                    <button id="water-wqi">WQI</button>
+                    <button id="water-bod">B.O.D</button>
+                    <button id="water-heatmap">HeatMap</button>
+                    <button id="water-ph">Ph</button>
+                </div>
+        
+                <div class="chart-container">
+                    <canvas id="chartAhmedabad"></canvas>
+                    <canvas id="chartBengaluru"></canvas>
+                </div>
+        
+            </div>
+    </div>
+    <div class="hero">
+        <div class="hero-content">
+          <h1>Welcome to Environmental Insights</h1>
+          <p>Explore comprehensive indexes on air and water quality, detailed analysis, and learn more about us.</p>
+          <div class="hero-buttons">
+            <a href="#air-quality" class="btn">Air Quality Index</a>
+            <a href="#water-quality" class="btn">Water Quality Index</a>
+            <a href="#analysis" class="btn">Analysis</a>
+            <a href="#about-us" class="btn">About Us</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- About Us Section -->
+    <section class="about-us">
+        <div class="container">
+            <div class="about-content">
+                <h2>About SpiroNova</h2>
+                <p>SpiroNova is a leading environmental technology company dedicated to improving air and water quality through innovative solutions and comprehensive data analysis. Our mission is to provide accurate, real-time insights into environmental conditions, helping communities and organizations make informed decisions to protect and enhance their environment.</p>
+                
+                <h3>Our Mission</h3>
+                <p>Our mission is to harness the power of technology to deliver reliable and actionable environmental data. We strive to promote sustainability and improve quality of life by offering cutting-edge solutions and fostering environmental awareness.</p>
+                
+                <h3>Our Values</h3>
+                <ul>
+                    <li><strong>Innovation:</strong> We are committed to continuous improvement and leveraging technology to drive progress.</li>
+                    <li><strong>Integrity:</strong> We operate with transparency and honesty in all our interactions.</li>
+                    <li><strong>Excellence:</strong> We aim for the highest standards in our products, services, and customer support.</li>
+                    <li><strong>Sustainability:</strong> We prioritize eco-friendly practices and work towards a greener future.</li>
+                </ul>
+            </div>
+
+            <!-- Team Members Section -->
+            <div class="team">
+                <h2>Meet Our Team</h2>
+                <div class="team-members">
+                    <div class="team-member">
+                        <img src="images/team-member1.jpg" alt="Divya">
+                        <h3>Divya</h3>
+                        <p>CEO</p>
+                      </div>
+                    <div class="team-member">
+                        <img src="images/team-member2.jpg" alt="Divya Sri">
+                        <h3>Divya Sri</h3>
+                        <p>Chief Technology Officer</p>
+                     </div>
+                    <div class="team-member">
+                        <img src="images/team-member3.jpg" alt="Mohanraj">
+                        <h3>Mohanraj</h3>
+                        <p>Co Founder</p>
+                      </div>
+                    <div class="team-member">
+                        <img src="images/team-member4.jpg" alt="Kavya">
+                        <h3>Kavya</h3>
+                        <p>Marketing Director</p>
+                      </div>
+                      <div class="team-member">
+                        <img src="images/team-member4.jpg" alt="Sagar">
+                        <h3>Sagar</h3>
+                        <p>Director</p>
+                      </div>
+                      <div class="team-member">
+                        <img src="images/team-member4.jpg" alt="Ahamed">
+                        <h3>Ahamed</h3>
+                        <p>Project Director</p>
+                      </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+      <div class="form-container">
+        <h2>Get in Touch</h2>
+        <form action="/submit" method="post">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+    
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+    
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Enter the subject" required>
+            </div>
+    
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+            </div>
+    
+            <div class="form-group">
+                <button type="submit" class="btn">Submit</button>
+            </div>
+        </form>
+    </div>
+    
+    <!-- Footer section -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>SpiroNova is dedicated to providing comprehensive environmental data to help you stay informed about air and water quality. Our goal is to raise awareness and promote a healthier environment.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#air-quality">Air Quality</a></li>
+                    <li><a href="#water-quality">Water Quality</a></li>
+                    <li><a href="#analysis">Analysis</a></li>
+                    <li><a href="#about-us">About Us</a></li>
+                    <li><a href="#contact-us">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: <a href="mailto:info@spironova.com">info@spironova.com</a></p>
+                <p>Phone: +1 (123) 456-7890</p>
+                <p>Address: 123 Green St, Environment City, EC 12345</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#" class="social-icon"><img src="icons/facebook.svg" alt="Facebook"></a>
+                    <a href="#" class="social-icon"><img src="icons/twitter.svg" alt="Twitter"></a>
+                    <a href="#" class="social-icon"><img src="icons/instagram.svg" alt="Instagram"></a>
+                    <a href="#" class="social-icon"><img src="icons/linkedin.svg" alt="LinkedIn"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 SpiroNova. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
